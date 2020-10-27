@@ -2,13 +2,13 @@
 Simple console based blackjack dice game created for the purpose of ITPR6.598 2020 Assignment 2 in the language Java.
 
 ## Establish Methods
-**REQ-1:** Establish the pt values for each number in a method called numberValue
-       a)0 = 10pts
-       b)2 - 9 = pts are their number value
-       c)1 = either 1 or 11 players choice. Determine value by prompting player: "You've rolled a 1. Would you like it to be worth 1 or 11?"
-              *If answer 1 or 11 relevant number choosen and used
-              *If invalid input is entered then the user is prompted again until valid data is inputed
-       d)If dealer roles a 1, it always means 11
+**REQ-1:** Establish the pt values for each number in a method called numberValue\
+       a)0 = 10pts\
+       b)2 - 9 = pts are their number value\
+       c)1 = either 1 or 11 players choice. Determine value by prompting player: "You've rolled a 1. Would you like it to be worth 1 or 11?"\
+              *If answer 1 or 11 relevant number choosen and used\
+              *If invalid input is entered then the user is prompted again until valid data is inputed\
+       d)If dealer roles a 1, it always means 11\
 
 **REQ-2:** Establish what is required to win in a method called blackjackOrBust
     * a)If the hand exceeds 21 the player/dealer goes bust and the other party wins
