@@ -53,8 +53,11 @@ public class App
 
         if (sumOfHand > 21) {
             outcome = "bust";
+            System.out.println("Sorry but that's a BUST");
+            System.out.println("Game over man. Game over.");
         } else if (sumOfHand == 21) {
             outcome = "blackjack";
+            System.out.println("Your a winner because that's BLACKJACK!!");
         }
 
         return outcome;
@@ -96,38 +99,44 @@ public class App
         dealersHand.add(diceRoll());
         valueOfDealersHand.add(numberValue(dealersHand.get(0), whosTurn));
 
-        System.out.println("Dealers First Roll: " + dealersHand.get(0) + "        - DEALER'S TOTAL: " + sumOfHand(valueOfDealersHand));
+        System.out.println("Dealers First Roll: " + dealersHand + "        - DEALER'S TOTAL: " + sumOfHand(valueOfDealersHand));
 
         //REQ-7: Player's turn. Two dice rolls are dealt to them
         whosTurn = "player";
         System.out.println("_____________________________________________________");
         playersHand.add(diceRoll());
         valueOfPlayersHand.add(numberValue(playersHand.get(0), whosTurn));
-        System.out.println("YOUR TURN: " + playersHand.get(0) + "        - YOUR TOTAL: " + sumOfHand(valueOfPlayersHand));
+        System.out.println("YOUR TURN: " + playersHand + "        - YOUR TOTAL: " + sumOfHand(valueOfPlayersHand));
 
         playersHand.add(diceRoll());
         valueOfPlayersHand.add(numberValue(playersHand.get(1), whosTurn));
 
-        System.out.println("YOUR TURN: " + playersHand.get(1) + "        - YOUR TOTAL: " + sumOfHand(valueOfPlayersHand)+"\n");
+        System.out.println("YOUR TURN: " + playersHand + "        - YOUR TOTAL: " + sumOfHand(valueOfPlayersHand)+"\n");
 
-        //REQ-8: Check if the player has gone bust or has a blackjack
-        String outcome = blackjackOrBust(playersHand);
-        if (outcome.equals("bust")){
-            System.out.println("Sorry but that's a BUST");
-        } else if (outcome.equals("blackjack")){
-            System.out.println("Your a winner because thats BLACKJACK!!");
+        //REQ-11: repeat the player's turn until they either go bust, roll blackjack, or the hold.
+        String playersChoice = null;
+        do {
+            //REQ-8: Check if the player has gone bust or has a blackjack
+            String outcome = blackjackOrBust(playersHand);
+
+            //REQ-9: Player chooses to hold or roll
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Would you like to hold your current hand, or roll the dice again? Please type hold or roll to choose.  ");
+            playersChoice = scanner.nextLine();
+            playersChoice = playersChoice.toLowerCase();
+            if (playersChoice.equals("hold")) {
+
+            } else if (playersChoice.equals("roll")) {
+                //REQ-10: Player chooses to roll the dice again.
+                playersHand.add(diceRoll());
+                valueOfPlayersHand.add(numberValue(playersHand.get(2), whosTurn));
+                System.out.println("YOUR TURN: " + playersHand + "        - YOUR TOTAL: " + sumOfHand(valueOfPlayersHand) + "\n");
+            }
         }
+        //While the player hasn't rolled a blackjack, hasn't busted and hasn't choosen to hold their hand, continue the loop.
+        while (blackjackOrBust(valueOfPlayersHand).equals("play on") || playersChoice.equals("hold"));
 
-        //REQ-9: Player chooses to hold or roll
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Would you like to hold your turn or roll the dice again? Please type hold or roll to choose." );
-        String playersChoice = scanner.nextLine();
-        playersChoice = playersChoice.toLowerCase();
-        if (playersChoice.equals("hold")) {
 
-        } else if (playersChoice.equals("roll")) {
-            //REQ-10: Player chooses to roll the dice again.
-        }
 
 
 
