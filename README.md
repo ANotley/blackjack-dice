@@ -1,65 +1,53 @@
 # blackjack-dice
 Simple console based blackjack dice game created for the purpose of ITPR6.598 2020 Assignment 2 in the language Java.
 
-## Establish Methods
-**REQ-1:** Establish the pt values for each number in a method called numberValue\
-       * 0 = 10pts\
-       * 2 - 9 = pts are their number value\
-       * 1 = either 1 or 11 players choice. Determine value by prompting player: "You've rolled a 1. Would you like it to be worth 1 or 11?"\
-       * If dealer roles a 1, it always means 11\
+###Set-up Rules/Methods
+* REQ-1: The game must be able to determine what the real point value is for each number. The point values are to be implemented as set out below: \
+      a. #0 = 10pts \
+      b. For dealer: #1 = 11 pts \
+      c. Player can choose if #1 = 1pt or 11pts (input should be validated) \
+      d. #2 - #9 = pts are the same as their face value. Eg: #2 = 2pts 
 
-**REQ-2:** Establish what is required to win in a method called blackjackOrBust
-    * If the hand exceeds 21 the player/dealer goes bust and the other party wins
-    * If the hand equals 21 then they have a blackjack, party with the blackjack wins and the round is over
-    
-**REQ-3:** Establish the rules for dealer's move in a method called dealersMove
-       * If the dealers hand is >= 17 they must hold
-       * If the dealers hand is < 17 they must continue to roll until either they exceed 17 or goes bust
-       
-**REQ-4:** Create a method called diceRoll that returns a random number between 0 - 9 
-     
-    
-    
-## Start game - Game Set-up  
-**REQ-5:** Title of the Application and welcome message is displayed as "Welcome to Blackjack Dice. Please press any key to contine"
+* REQ-2:  The game must be able to determine if the player or dealer has gone bust. If yes, then the game ends and the other player wins. 
+(To go bust means their ‘hand’ or accumulative dice rolls exceed the total of 21pts)
 
-**REQ-6:** Once a key is pressed the diceRoll method is called and the number is dealt to the dealer, it's value is determined by running it through the numberValue method. Then the number and it's value is printed to the screen.
+* REQ-3:  The game must be able to determine if the player or dealer has ‘rolled a blackjack’.  If yes, then the game ends and the other player loses.
+(Blackjack means that they are the first to reach a total of exactly 21pts)
 
-**REQ-7:** The player has the first turn and is dealt 2 random numbers by running the diceRoll method twice 
-**REQ-7.1:** After each roll the random number's value is determined by running it through the numberValue method and their values are summed up
-**REQ-7.2:** Then the numbers and the player's total sum is displayed
+* REQ-4:  The game must be able to decide how the dealer should play by determining whether based on the dealer’s hand if the dealer should hold or roll.
+(To ‘hold’ means that the player/dealer is satisfied with their total and want to end their turn. To ‘roll’ means that the player/dealer wants to take their chances and roll the dice again.)\
+      a. If the dealer’s hand totals < 17 then the dealer must roll\
+      b. f the dealer’s hand totals >= 17 then the dealer must hold
 
-**REQ-8:** Check if the player has Won by rolling blackjack or whether the player has gone bust by running the sum through the blackjackOrBust method 
-**REQ-8.1:** If the player hasn't gone bust or won proceed to req 9. Otherwise skip to REQ-12.3
+* REQ-5:  The game must be able to ‘roll the dice’ and provide random numbers between 0 and 9 in order to simulate a rolled 10-sided dice.
 
+* REQ-6:  The game must be able to calculate the point totals of the player and dealer.
+
+* REQ-7:  The game should welcome the player to the game
+
+* REQ-8:  The game must then be set-up by ‘dealing’ the first dice roll to the dealer and displaying the dealt number and the total of the dealer’s hand to the screen.
+
+* REQ-9:  To continue set-up the game must then deal the player two dice rolls and print the two numbers and the combined total to the screen.
 
 ### Player's Turn
-**REQ-9:** Player is prompted to either hold their turn or roll the dice again. "Would you like to hold your turn or roll the dice again? Please type hold or roll to choose."
-       a) Player's input is validated: if hold or roll is chosen (case insenstive) then proceed in game
-       b) If input invalid keep prompting till the correct value is entered.
-    
-**REQ-10:** If the player chooses to roll the dice again a random number is choosen by running the diceRoll method, 
-**REQ-10.1:** It's value is determined by running the numberValue method and the number added to the players hand, and the value added to the player's sum. 
-**REQ-10.2:** The player's hand and the sum are then printed to the screen.
+* REQ-10:  Then the player takes the first turn. If player hasn’t busted or rolled a blackjack yet (game should check as per REQ 2 – 3), then the player must be prompted and asked whether they want to hold or roll the dice. (If the players input is invalid then it should be validated)
 
-**REQ-11:** Check if the player has won or gone bust by running the blackjackOrBust method.
-**REQ-11.1:** If the player hasn't won or lost the game yet, then the user returns to req 9 and they choose hold or roll again
+* REQ-11:  If the player chooses to roll the dice again, then the dice must be rolled again and the new random number dealt to the player. The updated player’s hand and total must now be printed to the screen
+
+* REQ-12:  If the player hasn’t gone bust or rolled blackjack yet (game should check as per REQ 2 – 3),  then the player is asked again whether they want to roll or hold, and req-11 is repeated.
+
+* REQ-13:  REQ-11 and 12 must be repeated sequentially until the player either rolls blackjack, goes bust or chooses to hold. (The game should check blackjack and bust as per REQ 2 – 3),
 
 ### Dealer's Turn
-**REQ-12:** If the player chooses to hold then their turn ends and it is the dealer's turn. Recall the value of the dealer's card 
-**REQ-12.1:** Run the dealer's sum through the blackjackOrBust method
-       * If the dealer has a blackjack or has gone bust then skip to REQ 12.3
-       * **REQ-12.2:**  Else, then run sum through dealersMove method to determine whether the dealer has to hold or roll
-                 * If the dealer has to roll, then the diceRoll class is run and the random number added to the dealer's hand.
-                 * The number's value is determined and the value added to the dealer's total sum. 
-                 * The dealer's hand and sum are then both printed to the screen.
-                 
-### Outcome of Game
-**REQ-12.3:** If the dealer has to hold then the game has ended and the outcome of the game is calculated.
-       * If the dealer goes bust then the player wins that round
-       * If the player goes bust then the dealer wins that round
-       * If the player and the dealer’s scores tie, then the dealer wins
-       * If the player’s score is higher than the dealer, the player wins
-       * If the dealer’s score is higher than the player, the dealer wins.
+* REQ-14:  If the player chooses to hold then it is now the dealer’s turn. The game must then decide what the dealer’s move must be, as outlined in REQ-4.
 
-**REQ-13:** At the end of the round the game will display the winner and their score 
+* EQ-15:  If the dealer must roll, then the game must deal another dice roll to the dealer and then display the updated dealer’s hand and total.
+
+* EQ-16:  The game then checks whether the dealer has now gone bust or rolled blackjack. (game should check as per REQ 2 – 3). If not, then REQ-14 – 15 is repeated until dealer goes blackjack or bust, or must hold.
+
+### Outcome of Game
+* EQ-17:  When the dealer must hold, then the game ends and the outcome of the game, and the dealer/player’s scores must be displayed to the screen\
+      a. I player and dealer tie, then dealer wins\
+      b. f player score > dealer, player wins\
+      c. f dealer score> player, dealer wins
+
