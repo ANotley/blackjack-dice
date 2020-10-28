@@ -27,9 +27,9 @@ Simple console based blackjack dice game created for the purpose of ITPR6.598 20
 
 **REQ-6:** Once a key is pressed the diceRoll method is called and the number is dealt to the dealer, it's value is determined by running it through the numberValue method. Then the number and it's value is printed to the screen.
 
-**REQ-7.1:** The player has the first turn and is dealt 2 random numbers by running the diceRoll method twice 
-**REQ-7.2:** After each roll the random number's value is determined by running it through the numberValue method and their values are summed up
-**REQ-7.3:** Then the numbers and the player's total sum is displayed
+**REQ-7:** The player has the first turn and is dealt 2 random numbers by running the diceRoll method twice 
+**REQ-7.1:** After each roll the random number's value is determined by running it through the numberValue method and their values are summed up
+**REQ-7.2:** Then the numbers and the player's total sum is displayed
 
 **REQ-8:** Check if the player has Won by rolling blackjack or whether the player has gone bust by running the sum through the blackjackOrBust method 
 **REQ-8.1:** If the player hasn't gone bust or won proceed to req 9. Otherwise skip to REQ-12.3
