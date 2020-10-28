@@ -37,7 +37,7 @@ Simple console based blackjack dice game created for the purpose of ITPR6.598 20
 
 ### Player's Turn
 **REQ-9:** Player is prompted to either hold their turn or roll the dice again. "Would you like to hold your turn or roll the dice again? Please type hold or roll to choose."
-       a) Player's input is validated: if hold or choose is chosen (case insenstive) then proceed in game
+       a) Player's input is validated: if hold or roll is chosen (case insenstive) then proceed in game
        b) If input invalid keep prompting till the correct value is entered.
     
 **REQ-10:** If the player chooses to roll the dice again a random number is choosen by running the diceRoll method, 
