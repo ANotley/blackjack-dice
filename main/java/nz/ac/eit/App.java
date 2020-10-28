@@ -57,7 +57,7 @@ public class App
         }
 
         if (whosTurn.equals("dealer") && outcome.equals("bust")){
-            System.out.println("OUTCOME: Dealer's gone bust your a WINNER!!");
+            System.out.println("OUTCOME: Dealer's gone bust, but you're a WINNER!!");
         } else if (whosTurn.equals("dealer") && outcome.equals("blackjack")) {
             System.out.println("OUTCOME: Dealer rolls blackjack. You lose");
         } else if (whosTurn.equals("player") && outcome.equals("bust")) {
