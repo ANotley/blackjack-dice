@@ -1,7 +1,7 @@
 # blackjack-dice
 Simple console based blackjack dice game created for the purpose of ITPR6.598 2020 Assignment 2 in the language Java.
 
-###Set-up Rules/Methods
+### Set-up Rules/Methods
 * REQ-1: The game must be able to determine what the real point value is for each number. The point values are to be implemented as set out below: \
       a. #0 = 10pts \
       b. For dealer: #1 = 11 pts \
