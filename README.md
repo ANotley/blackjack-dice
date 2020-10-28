@@ -47,7 +47,7 @@ Simple console based blackjack dice game created for the purpose of ITPR6.598 20
 
 ### Outcome of Game
 * REQ-17:  When the dealer must hold, then the game ends and the outcome of the game, and the dealer/player’s scores must be displayed to the screen\
-      a. I player and dealer tie, then dealer wins\
-      b. f player score > dealer, player wins\
-      c. f dealer score> player, dealer wins
+      a. If player and dealer tie, then dealer wins\
+      b. If player score > dealer, player wins\
+      c. If dealer score> player, dealer wins
 
