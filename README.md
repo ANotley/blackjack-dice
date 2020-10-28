@@ -41,12 +41,12 @@ Simple console based blackjack dice game created for the purpose of ITPR6.598 20
 ### Dealer's Turn
 * REQ-14:  If the player chooses to hold then it is now the dealer’s turn. The game must then decide what the dealer’s move must be, as outlined in REQ-4.
 
-* EQ-15:  If the dealer must roll, then the game must deal another dice roll to the dealer and then display the updated dealer’s hand and total.
+* REQ-15:  If the dealer must roll, then the game must deal another dice roll to the dealer and then display the updated dealer’s hand and total.
 
-* EQ-16:  The game then checks whether the dealer has now gone bust or rolled blackjack. (game should check as per REQ 2 – 3). If not, then REQ-14 – 15 is repeated until dealer goes blackjack or bust, or must hold.
+* REQ-16:  The game then checks whether the dealer has now gone bust or rolled blackjack. (game should check as per REQ 2 – 3). If not, then REQ-14 – 15 is repeated until dealer goes blackjack or bust, or must hold.
 
 ### Outcome of Game
-* EQ-17:  When the dealer must hold, then the game ends and the outcome of the game, and the dealer/player’s scores must be displayed to the screen\
+* REQ-17:  When the dealer must hold, then the game ends and the outcome of the game, and the dealer/player’s scores must be displayed to the screen\
       a. I player and dealer tie, then dealer wins\
       b. f player score > dealer, player wins\
       c. f dealer score> player, dealer wins
