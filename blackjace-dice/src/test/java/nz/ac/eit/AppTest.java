@@ -19,6 +19,7 @@ public class AppTest
 
         //Mock the user Input for numberValue 1 for player
         //Mockito.when(app.numberValue(1, "player")).thenReturn(1);
+        //Mockito.when(app.numberValue(1, "player")).thenReturn(11);
 
     }
 
@@ -58,6 +59,14 @@ public class AppTest
 
     @Test
     public void getNumberValue_of1ForPlayer_returnChosenValueOf11() {
+        App app = new App();
+        int numberRolled = 1;
+        String whosTurn = "player";
+
+        int result = App.numberValue(numberRolled, whosTurn);
+
+        //Test if output matches expected result
+        assertEquals(11, result);
     }**/
 
     @Test
@@ -98,8 +107,8 @@ public class AppTest
         assertEquals("blackjack", result);
     }
 
-    @Test
-    public void getBlackjackOrBust_isHandBust_returnBust() {
+    @Test //For some reason making the b on blackjack lowercase made the test run? (It was failing to run before)
+    public void getblackjackOrBust_isHandBust_returnBust() {
         App app = new App();
         String whosTurn = "player"; //This value only changes the message printed to screen not the value returned.
         ArrayList<Integer> valueOfHand = new ArrayList<Integer>();
@@ -168,5 +177,19 @@ public class AppTest
 
         //Test if output matches expected result.
         assertEquals("hold", result);
+    }
+
+    @Test
+    public void getsumOfHand_totalOfRandomHand_ReturnTotal() {
+        App app = new App();
+        ArrayList<Integer> playersHand = new ArrayList<Integer>();
+        playersHand.add(5);
+        playersHand.add(10);
+        playersHand.add(4);
+
+        int result = App.sumOfHand(playersHand);
+
+        //Test if output matches exptected result
+        assertEquals(19, result);
     }
 }
