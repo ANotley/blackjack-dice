@@ -101,7 +101,8 @@ public class App
         System.out.println("\nWelcome to Blackjack Dice. Lets Start!\n");
 
         //REQ-8: Deal the Dealer's first dice roll and print hand + total
-        dealersHand.add(diceRoll());
+        //dealersHand.add(diceRoll());
+        dealersHand.add(0);
         valueOfDealersHand.add(numberValue(dealersHand.get(0), whosTurn));
         System.out.println("DEALER: " + dealersHand + "        - DEALER'S TOTAL: " + sumOfHand(valueOfDealersHand));
         blackjackOrBust(valueOfDealersHand, whosTurn);
@@ -174,7 +175,7 @@ public class App
         System.out.println("_____________________________________________________");
         //REQ-17a
         if (sumOfHand(valueOfDealersHand) == sumOfHand(valueOfPlayersHand)) {
-            System.out.println("OUTCOME: You've tied with the dealer. The dealer wins the round.");
+                System.out.println("OUTCOME: You've tied with the dealer. The dealer wins the round.");
             System.out.println("Dealer: " + sumOfHand(valueOfDealersHand) + " |  Your Score: " + sumOfHand(valueOfPlayersHand));
 
             //REQ-17b
